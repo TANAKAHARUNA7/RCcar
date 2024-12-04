@@ -113,7 +113,7 @@ def motor_control():
         while True:
             if keyboard.is_pressed('w') and not motor_running:
                 print("Wキーが押されました: DCモーターを前進します。")
-                set_dc_motor(50, "forward")  # 前進速度50%でモーターを動作
+                set_dc_motor(70, "forward")  # 前進速度50%でモーターを動作
                 motor_running = True  # モーターが動作中であることを設定
             elif keyboard.is_pressed('s'):
                 print("Sキーが押されました: DCモーターを停止します。")
@@ -121,11 +121,11 @@ def motor_control():
                 motor_running = False  # モーターを停止状態に設定
             elif keyboard.is_pressed('a'):
                 print("Aキーが押されました: サーボモーターを左回転します。")
-                current_servo_angle = max(0, current_servo_angle - 10)  # 左回転（角度を減少）
+                current_servo_angle = max(0, current_servo_angle - 5)  # 左回転（角度を減少）
                 set_servo_angle(current_servo_angle)
             elif keyboard.is_pressed('d'):
                 print("Dキーが押されました: サーボモーターを右回転します。")
-                current_servo_angle = min(180, current_servo_angle + 10)  # 右回転（角度を増加）
+                current_servo_angle = min(180, current_servo_angle + 5)  # 右回転（角度を増加）
                 set_servo_angle(current_servo_angle)
             elif keyboard.is_pressed('q'):  # 'q' キーでループ終了
                 print("Qキーが押されました: プログラムを終了します。")
