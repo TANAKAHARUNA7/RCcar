@@ -72,7 +72,7 @@ def motor_control():
     def set_servo_angle(angle):
         """
         指定された角度にサーボモーターを回転させる関数。
-        :param angle: サーボモーターの目標角度（0～180度）
+        :param angle: サーボモーターの目標角度(0～180度）
         """
         # 角度をデューティ比（2～12%）に変換
         duty_cycle = 2 + (angle / 18)  # データシートに基づく変換式
