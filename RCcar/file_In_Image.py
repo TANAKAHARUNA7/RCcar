@@ -148,11 +148,11 @@ def motor_control():
                 set_dc_motor(50, "backward")
             elif keyboard.is_pressed('a'):
                 print("左旋回中...")
-                new_angle = max(0, current_servo_angle - 30)
+                new_angle = max(0, current_servo_angle - 15)
                 set_servo_angle(new_angle)
             elif keyboard.is_pressed('d'):
                 print("右旋回中...")
-                new_angle = min(180, current_servo_angle + 30)
+                new_angle = min(180, current_servo_angle + 15)
                 set_servo_angle(new_angle)
             elif keyboard.is_pressed('q'):
                 print("終了キーが押されました。")
