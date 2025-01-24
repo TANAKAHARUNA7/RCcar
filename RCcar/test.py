@@ -1,25 +1,34 @@
 import os
-import pandas as pd
+import pandas as pd  # pandasをインポート
+from PIL import Image
+from torch.utils.data import Dataset, DataLoader
+from torchvision import transforms
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
 
-# ファイルパス設定
-csv_file = r"C:\Users\USER\Desktop\dataset\dataset_labels.csv"
-train_dir = r"C:\Users\USER\Desktop\dataset\train"
+# データセットの準備
+def prepare_dataset(csv_file, image_dir, output_csv):
+    df = pd.read_csv(csv_file)
+    file_list = os.listdir(image_dir)
+    valid_rows = df[df["filename"].isin(file_list)]
+    if valid_rows.empty:
+        raise ValueError("有効なデータがありません。CSVファイルまたは画像フォルダを確認してください。")
+    valid_rows.to_csv(output_csv, index=False)
+    print(f"有効なデータセットを保存しました: {output_csv}")
+    return valid_rows
 
-# CSVの読み込み
-data = pd.read_csv(csv_file)
+# メイン処理
+def main():
+    csv_file = r"C:\Users\USER\Desktop\dataset\dataset_labels.csv"
+    image_dir = r"C:\Users\USER\Desktop\dataset\train"
+    valid_csv = r"C:\Users\USER\Desktop\dataset\valid_dataset_labels.csv"
 
-# 不足ファイルの特定
-missing_files = []
-for _, row in data.iterrows():
-    if row['split'] == 'train':
-        file_path = os.path.join(train_dir, row['filename'])
-        if not os.path.exists(file_path):
-            missing_files.append(row['filename'])
+    # データセットの準備
+    prepare_dataset(csv_file, image_dir, valid_csv)
 
-# 不足ファイルの出力
-if missing_files:
-    print("存在しないファイル:")
-    for file in missing_files:
-        print(file)
-else:
-    print("すべてのファイルが存在します！")
+if __name__ == "__main__":
+    main()
+
+

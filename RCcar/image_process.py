@@ -10,6 +10,7 @@ output_folder = r"C:\Users\USER\Desktop\processed_images"
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 
+
 # ファイル処理を小分けにして実行
 count = 0
 for filename in os.listdir(input_folder):
