@@ -2,11 +2,11 @@ import os
 from PIL import Image
 
 # 元フォルダパス
-root_folder = r"C:\Users\USER\Desktop\dataset"  # 実際のフォルダパスに置き換え
+root_folder = r"C:\Users\USER\Desktop\copy2"  # 実際のフォルダパスに置き換え
 folders = ["60-74", "75-89", "90", "91-104", "105-120"]
 
 # 出力先フォルダ（上書き保存する場合は同じパスを指定）
-output_root_folder = r"C:\Users\USER\Desktop\processed_dataset"
+output_root_folder = r"C:\Users\USER\Desktop\processed_images"
 
 # 画像サイズ
 resize_size = (64, 64)
