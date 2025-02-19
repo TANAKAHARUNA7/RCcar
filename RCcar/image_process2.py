@@ -2,7 +2,7 @@ import cv2
 import os
 
 # 入力フォルダと出力フォルダの設定
-input_folder = r"C:\Users\USER\Desktop\RCcar_image"  # 入力フォルダ
+input_folder = r"C:\Users\USER\RCcar\dataset3"  # 入力フォルダ
 output_folder = r"C:\Users\USER\Desktop\processed_images"  # 出力フォルダ
 
 # 出力フォルダを作成（存在しない場合）

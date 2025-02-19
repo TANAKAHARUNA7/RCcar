@@ -2,7 +2,7 @@ import os
 import shutil
 import pandas as pd
 
-# パス設定
+# パス設定　経路の設定
 image_dir = r"C:\Users\USER\Desktop\RCcar_image"
 output_dir = r"C:\Users\USER\Desktop\dataset"
 csv_file = r"C:\Users\USER\Desktop\dataset\dataset_labels.csv"
